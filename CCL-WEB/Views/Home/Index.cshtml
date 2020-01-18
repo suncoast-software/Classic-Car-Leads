@@ -53,7 +53,7 @@
         </div>
     </form>
 </section>
-<section>
+<section class="col-sm-12">
     @if (Model != null)
     {
         if (Model.Count < 1)
@@ -96,7 +96,7 @@
                                                 <div class="mt-5 ml-1">
                                                     @if (listing.DealerUrl != "" || listing.DealerUrl != null)
                                                     {
-                                                        <a class="btn btn-drak text-shadow" role="button" asp-controller="SingleListing" asp-action="SingleListing" asp-route-id="@listing.Id">Details</a>
+                                                        <a class="btn btn-drak text-shadow" role="button" asp-controller="SingleListing" asp-action="Index" asp-route-id="@listing.Id">Details</a>
                                                     }
                                                 </div>
 

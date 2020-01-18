@@ -31,9 +31,9 @@ namespace CCL_WEB.Models
         {
             modelBuilder.Entity<Dealer>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Id);
 
-                entity.Property(e => e.DateVisited).HasColumnName("Date_Visited");
+                entity.Property(e => e.DateVisited).HasColumnName("DateVisited");
 
                 entity.Property(e => e.DealerName)
                     .IsRequired()

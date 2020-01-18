@@ -1,0 +1,100 @@
+﻿@model CCL_WEB.Models.Listing
+
+@{
+    ViewData["Title"] = "SingleListing";
+}
+
+<div class="row bg-dark p-5 flex">
+    <div class="justify-content-center">
+        <h3 class="text-warning text-shadow-2-2-75">For Sale: @Model.Title in @Model.Location</h3>
+    </div>
+    <hr />
+    <img src="@Url.Content(Model.MainImgUrl)" class="box-shadow-2 img-fluid" alt="listing image" />
+
+    <div class="container mt-5 ml-5 mr-5 text-light">
+        <h4>Listing Details</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ListingId):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ListingId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price):
+            </dt>
+            <dd class="col-sm-10 text-warning text-shadow-1-2-50">
+                <strong style="font-size: 1.25em;">@Html.DisplayFor(model => model.Price)</strong>
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Location):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Make):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Make)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Model):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Year):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Year)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Desc):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Desc)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Transmission):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Transmission)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Engine):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Engine)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Vin):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Vin)
+            </dd>
+            <dt class="col-sm-2">
+
+            </dt>
+            <dd class="col-sm-10">
+                <form method="post">
+                    <input type="text" hidden="hidden" name="listing" value="@Model.ListingId" />
+                    <input type="text" hidden="hidden" name="listing" value="@Model.DealerName" />
+                    <input type="text" hidden="hidden" name="listing" value="@Model.DealerUrl" />
+                    <input class="btn btn-warning formControl-shadow-1-2-50" role="button" type="submit" asp-controller="SingleListing" asp-action="GoToDealerSite" value="@Html.DisplayFor(model => model.DealerName)" />
+                </form>
+            </dd>
+        </dl>
+        <div>
+            <a asp-controller="Home" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
