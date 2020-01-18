@@ -1,15 +1,20 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
+.navbar-fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
@@ -22,6 +27,12 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.ad-section {
+    height: 150px;
+    width: 100%;
+    background-color: #0366d6; 
 }
 
 /* Sticky footer styles
@@ -61,6 +72,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+ 
 }
 .footer {
   position: absolute;
@@ -161,6 +173,25 @@ body {
     text-shadow: 0px 2px 2px rgba(0,0,0,0.75);
 }
 
+/*======== Set Margins =============*/
+.mt-10 {
+    margin-top: 10px;
+}
 
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mt-75 {
+    margin-top: 75px;
+}
+
+.mt-100 {
+    margin-top: 100px;
+}
 
 

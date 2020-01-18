@@ -1,0 +1,49 @@
+﻿@model CCL_WEB.Models.ContactFormModel
+@{
+    ViewData["Title"] = "ContactUs";
+}
+
+<div class="container">
+    <h1>ContactUs</h1>
+    <div class="row">
+        <div class="col-sm-12">
+            <form asp-action="ContactUs" asp-controller="Contact" method="post">
+                <div asp-validation-summary="All"></div>
+                <div>
+                    <label asp-for="ListingId">Listing ID:</label>
+                    <input type="text" asp-for="ListingId" name="listing" placeholder="@ViewBag.listingId" />
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div>
+                    <label asp-for="DealerName">Dealer Name:</label>
+                    <input type="text" asp-for="DealerName" name="listing" placeholder="@ViewBag.dealerName" />
+                    <span asp-validation-for="DealerName"></span>
+                </div>
+                <div>
+                    <label asp-for="DealerUrl">Dealer URL:</label>
+                    <input type="text" asp-for="DealerUrl" name="listing" placeholder="@ViewBag.dealerUrl" />
+                    <span asp-validation-for="DealerUrl"></span>
+                </div>
+                <div>
+                    <label asp-for="StockNumber">Stock #:</label>
+                    <input type="text" asp-for="StockNumber" name="listing" placeholder="@ViewBag.stockNumber" />
+                    <span asp-validation-for="StockNumber"></span>
+                </div>
+                <div>
+                    <label asp-for="Name">Please enter your name:</label>
+                    <input type="text" asp-for="Name" />
+                </div>
+                <div>
+                    <label asp-for="Email">Please enter your email:</label>
+                    <input type="text" asp-for="Email" />
+                </div>
+                <div>
+                    <label asp-for="Message">Please enter your message:</label>
+                    <textarea asp-for="Message"></textarea>
+                </div>
+                <input type="submit" value="Send Message!" />
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -54,6 +54,11 @@ namespace CCL_WEB.Controllers
             return View(listings);
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

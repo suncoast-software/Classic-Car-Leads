@@ -26,8 +26,8 @@ namespace CCL_WEB
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddDbContext<CCLdbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-            services.AddDbContext<CCLdbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:LocalConnection"]));
+            services.AddDbContext<CCLdbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            //services.AddDbContext<CCLdbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:LocalConnection"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
