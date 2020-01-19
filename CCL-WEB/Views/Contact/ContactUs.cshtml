@@ -3,47 +3,45 @@
     ViewData["Title"] = "ContactUs";
 }
 
-<div class="container">
-    <h1>ContactUs</h1>
-    <div class="row">
-        <div class="col-sm-12">
+<div class="container mt-75">
+    <div class="col-sm-12 mt-1">
+        <h1 class="text-light text-shadow-2-2-75">Request More Info!</h1>
+        <div class="alert alert-warning alert-dismissible fade show box-shadow-2" role="alert">
+            <strong>Request More Info</strong> is currently unavailable (we are working on this feature)
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        
             <form asp-action="ContactUs" asp-controller="Contact" method="post">
                 <div asp-validation-summary="All"></div>
-                <div>
-                    <label asp-for="ListingId">Listing ID:</label>
-                    <input type="text" asp-for="ListingId" name="listing" placeholder="@ViewBag.listingId" />
-                    <span asp-validation-for="Name"></span>
+                <div class="form-group">
+                    <input class="form-control" type="text" hidden="hidden" asp-for="ListingId" name="listing" placeholder="@ViewBag.listingId" />
                 </div>
-                <div>
-                    <label asp-for="DealerName">Dealer Name:</label>
-                    <input type="text" asp-for="DealerName" name="listing" placeholder="@ViewBag.dealerName" />
-                    <span asp-validation-for="DealerName"></span>
+                <div class="form-group">
+                    <input class="form-control" type="text" hidden="hidden" asp-for="DealerName" name="listing" placeholder="@ViewBag.dealerName" />
                 </div>
-                <div>
-                    <label asp-for="DealerUrl">Dealer URL:</label>
-                    <input type="text" asp-for="DealerUrl" name="listing" placeholder="@ViewBag.dealerUrl" />
-                    <span asp-validation-for="DealerUrl"></span>
+                <div class="form-group">
+                    <input class="form-control" type="text" hidden="hidden" asp-for="DealerUrl" name="listing" placeholder="@ViewBag.dealerUrl" />
                 </div>
-                <div>
-                    <label asp-for="StockNumber">Stock #:</label>
-                    <input type="text" asp-for="StockNumber" name="listing" placeholder="@ViewBag.stockNumber" />
-                    <span asp-validation-for="StockNumber"></span>
+                <div class="form-group">
+                    <input class="form-control" type="text" hidden="hidden" asp-for="StockNumber" name="listing" placeholder="@ViewBag.stockNumber" />
                 </div>
-                <div>
-                    <label asp-for="Name">Please enter your name:</label>
-                    <input type="text" asp-for="Name" />
+                <div class="form-group">
+                    <label class="text-light" asp-for="Name">Please enter your name:</label>
+                    <input class="form-control box-shadow-1" type="text" asp-for="Name" />
                 </div>
-                <div>
-                    <label asp-for="Email">Please enter your email:</label>
-                    <input type="text" asp-for="Email" />
+                <div class="form-group">
+                    <label class="text-light" asp-for="Email">Please enter your email:</label>
+                    <input class="form-control box-shadow-1" type="text" asp-for="Email" />
                 </div>
-                <div>
-                    <label asp-for="Message">Please enter your message:</label>
-                    <textarea asp-for="Message"></textarea>
+                <div class="form-group">
+                    <label class="text-light" asp-for="Message">Please enter your message:</label>
+                    <textarea class="form-control box-shadow-1" asp-for="Message"></textarea>
                 </div>
-                <input type="submit" value="Send Message!" />
+                <input class="btn btn-primary formControl-shadow-1-2-50" type="submit" value="Request More Info!" />
             </form>
-        </div>
+       
     </div>
 </div>
 

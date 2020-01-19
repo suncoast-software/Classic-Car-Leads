@@ -46,10 +46,11 @@ namespace CCL_WEB.Controllers
             var models = homeHelper.GetModels();
 
             var listings = homeHelper.Search(year, make, model);
-
+ 
             ViewBag.years = years;
             ViewBag.makes = makes;
             ViewBag.models = models;
+
 
             return View(listings);
         }
