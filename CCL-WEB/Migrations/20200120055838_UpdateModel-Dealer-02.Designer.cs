@@ -4,14 +4,16 @@ using CCL_WEB.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CCL_WEB.Migrations
 {
     [DbContext(typeof(CCLdbContext))]
-    partial class CCLdbContextModelSnapshot : ModelSnapshot
+    [Migration("20200120055838_UpdateModel-Dealer-02")]
+    partial class UpdateModelDealer02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

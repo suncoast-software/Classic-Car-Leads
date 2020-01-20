@@ -2,59 +2,81 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<div class="row mb-3 box-shadow-1" style="background-color: #808080; height: 150px; margin-top: 60px;">
-    <div>
-        <h5 class="ml-5 mr-5">Ad Section</h5>
-    </div>
-</div>
-<div class="container">
+
+<div class="container mt-100">
     <section style="border-radius: 22px;">
-        <form asp-controller="Home" asp-action="Index" method="post">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card card-bg-warning formControl-shadow-1-2-50">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-bg-warning formControl-shadow-1-2-50">
+                    <form asp-controller="Home" asp-action="Index" method="post" name="formSearch">
                         <div class="card-body">
                             <div class="card-title text-center">Search Query</div>
                             <div class="col-sm-12">
                                 <p class="mb-1">
-                                    <select class="form-control formControl-shadow-1-1-25 mb-1" name="year">
+                                    <select id="years" class="form-control formControl-shadow-1-1-25 mb-1" name="year">
                                         <option value="">Year</option>
+                                    @if (ViewBag.years != null)
+                                    {
                                         @foreach (var item in ViewBag.years)
                                         {
-                                            <option value="@item" name="">@item</option>
+                                            <option value="@item">@item</option>
                                         }
+                                    }
+                                    else
+                                    {
+                                    }
+
                                     </select>
                                 </p>
                                 <p class="mb-1">
                                     <select class="form-control formControl-shadow-1-1-25 mb-1" name="make">
                                         <option value="">Make</option>
-                                        @foreach (var item in ViewBag.makes)
+                                        @if (ViewBag.makes != null)
                                         {
-                                            <option value="@item">@item</option>
+                                            @foreach (var item in ViewBag.makes)
+                                            {
+                                                <option value="@item">@item</option>
+
+                                            }
+                                        }
+                                        else
+                                        {
 
                                         }
+
                                     </select>
                                 </p>
                                 <p class="mb-1">
                                     <select class="form-control formControl-shadow-1-1-25 mb-1" name="model">
                                         <option value="">Model</option>
-                                        @foreach (var item in ViewBag.models)
+                                        @if (ViewBag.models != null)
                                         {
-                                            <option value="@item">@item</option>
+                                        @foreach (var item in ViewBag.models)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }
+                                        }
+                                        else
+                                        {
+
                                         }
                                     </select>
                                 </p>
                                 <input type="submit" Value="Submit" class="btn btn-primary btn-shadow-1 mb-2 mt-2" />
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
-                <div class="col-sm-6 car">
-                    <img src="~/img/head-to-head.png" />
-                </div>
+                <!--End Card-->
             </div>
-        </form>
+        </div>
+        <div class="row mt-20">
+            <div class="col-sm-12">
+                <div class=" alert alert-warning text-dark box-shadow-2">Use the above form to search for classic cars by Year, Make and Model</div>
+            </div>
+        </div>
     </section>
+    
     <section class="container">
         @if (Model != null)
         {
@@ -70,17 +92,17 @@
 
                     @foreach (var listing in Model)
                     {
-                        <div class="align-content-center">
-                            <div class="card formControl-shadow-2-2-50 card-bg-light-grey-dark-grey mb-3">
+                        <div>
+                            <div class="card formControl-shadow-2-2-50 card-bg-light-grey-dark-grey mb-3 align-content-center p-2">
                                 <div class="row no-gutters">
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 flex">
                                         @if (listing.MainImgUrl == null)
                                         {
                                             <label>no image available</label>
                                         }
                                         else
                                         {
-                                            <img src="@Url.Content(listing.MainImgUrl)" class="card-img img-fluid box-shadow-3 m-3" alt="...">
+                                            <img src="@Url.Content(listing.MainImgUrl)" class="card-img align-content-center box-shadow-2 mt-3" alt="...">
                                         }
 
                                     </div>
@@ -116,5 +138,4 @@
         }
     </section>
 </div>
-
 

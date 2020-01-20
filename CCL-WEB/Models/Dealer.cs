@@ -11,6 +11,8 @@ namespace CCL_WEB.Models
         public string ListingId { get; set; }
         public string DealerName { get; set; }
         public string DealerUrl { get; set; }
+        public string StockNumber { get; set; }
         public DateTime DateVisited { get; set; }
+
     }
 }

@@ -41,18 +41,12 @@ namespace CCL_WEB.Controllers
         [HttpPost]
         public IActionResult Index(string year, string make, string model)
         {
-            var years = homeHelper.GetYears();
-            var makes = homeHelper.GetMakes();
-            var models = homeHelper.GetModels();
-
             var listings = homeHelper.Search(year, make, model);
- 
-            ViewBag.years = years;
-            ViewBag.makes = makes;
-            ViewBag.models = models;
-
-
+            ViewBag.years = homeHelper.GetYears(); 
+            ViewBag.models = homeHelper.GetModels();
+            ViewBag.makes = homeHelper.GetMakes();
             return View(listings);
+           
         }
 
         public IActionResult About()
@@ -70,5 +64,6 @@ namespace CCL_WEB.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
