@@ -120,7 +120,13 @@ body {
 }
 
 .card-bg-light-grey-dark-grey {
-    background-image: linear-gradient(to bottom, #d8d8d8, #bbbbbb, #b5b6b6, #b0b1b1, #b9bab9);
+    background: rgba(237,237,237,0.75);
+    background: -moz-linear-gradient(top, rgba(237,237,237,0.5) 0%, rgba(232,232,232,0.7) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(237,237,237,0.5)), color-stop(100%, rgba(232,232,232,.7)));
+    background: -webkit-linear-gradient(top, rgba(237,237,237,0.5) 0%, rgba(232,232,232,.7) 100%);
+    background: -o-linear-gradient(top, rgba(237,237,237,0.5) 0%, rgba(232,232,232,.7) 100%);
+    background: linear-gradient(to bottom, rgba(237,237,237,0.5) 0%, rgba(232,232,232,.7) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#e8e8e8', GradientType=0 );
 }
 
 .card-bg-warning {

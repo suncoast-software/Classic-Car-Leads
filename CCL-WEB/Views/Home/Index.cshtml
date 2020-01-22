@@ -25,7 +25,6 @@
                                     else
                                     {
                                     }
-
                                     </select>
                                 </p>
                                 <p class="mb-1">
@@ -43,7 +42,6 @@
                                         {
 
                                         }
-
                                     </select>
                                 </p>
                                 <p class="mb-1">
@@ -92,44 +90,44 @@
 
                     @foreach (var listing in Model)
                     {
-                        <div>
-                            <div class="card formControl-shadow-2-2-50 card-bg-light-grey-dark-grey mb-3 align-content-center p-2">
-                                <div class="row no-gutters">
-                                    <div class="col-sm-4 flex">
-                                        @if (listing.MainImgUrl == null)
-                                        {
-                                            <label>no image available</label>
-                                        }
-                                        else
-                                        {
-                                            <img src="@Url.Content(listing.MainImgUrl)" class="card-img align-content-center box-shadow-2 mt-3" alt="...">
-                                        }
+                    
+                    <div class="card formControl-shadow-2-2-50 card-bg-light-grey-dark-grey mb-3 align-content-center p-2">
+                        <div class="row no-gutters">
+                            <div class="col-sm-4 flex">
+                                @if (listing.MainImgUrl == null)
+                                {
+                                    <label>no image available</label>
+                                }
+                                else
+                                {
+                                    <img src="@Url.Content(listing.MainImgUrl)" class="card-img align-content-center box-shadow-2 mt-3" alt="...">
+                                }
 
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="card-body">
-                                            <h6 class="card-subtitle text-black-50 ml-2">@listing.ListingId</h6>
-                                            <h5 class="card-title text-warning text-shadow-1-2-50 ml-2">@listing.Title</h5>
-                                            <p class="card-text ml-2">
-                                                @listing.Location
-                                                <br />Price:&nbsp;@listing.Price
-                                                <br />Make:&nbsp;@listing.Make
-                                                <br />Model:&nbsp;@listing.Model
-                                                <br />Year&nbsp;@listing.Year
-                                                <br />
-                                                <div class="mt-5 ml-1">
-                                                    @if (listing.DealerUrl != "" || listing.DealerUrl != null)
-                                                    {
-                                                        <a class="btn btn-dark text-shadow" role="button" asp-controller="SingleListing" asp-action="Index" asp-route-id="@listing.Id">Details</a>
-                                                    }
-                                                </div>
-
-                                            </p>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle text-black-50 ml-2">@listing.ListingId</h6>
+                                    <h5 class="card-title text-warning text-shadow-1-2-50 ml-2">@listing.Title</h5>
+                                    <p class="card-text ml-2">
+                                        @listing.Location
+                                        <br />Price:&nbsp;@listing.Price
+                                        <br />Make:&nbsp;@listing.Make
+                                        <br />Model:&nbsp;@listing.Model
+                                        <br />Year&nbsp;@listing.Year
+                                        <br />
+                                        <div class="mt-5 ml-1">
+                                            @if (listing.DealerUrl != "" || listing.DealerUrl != null)
+                                            {
+                                                <a class="btn btn-dark text-shadow" role="button" asp-controller="SingleListing" asp-action="Index" asp-route-id="@listing.Id">Details</a>
+                                            }
                                         </div>
-                                    </div>
+
+                                    </p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                       
                     }
 
                 </div>

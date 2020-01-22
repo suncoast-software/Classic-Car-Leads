@@ -14,6 +14,7 @@ namespace CCL_WEB.Controllers
         public ContactController(CCLdbContext context)
         {
             this.context = context;
+
         }
 
         public IActionResult ContactUs(string[] listing)

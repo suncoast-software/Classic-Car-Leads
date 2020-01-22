@@ -4,12 +4,13 @@
     ViewData["Title"] = "SingleListing";
 }
 
-
-<div class="bg-dark mt-20">
+<div class="bg-dark mt-100">
     <div class="container">
         <div class="p-5 flex">
-            <div class="justify-content-center">
-                <h3 class="text-warning text-shadow-2-2-75">For Sale: @Model.Title in @Model.Location</h3>
+            <div class="col-sm-12">
+                <h3 class="text-warning text-shadow-2-2-75">For Sale: @Model.Title in @Model.Location
+                    <span class="text-success text-shadow-2-2-75 float-right">@Model.Status Active</span></h3>
+                
             </div>
             <hr />
             <img src="@Url.Content(Model.MainImgUrl)" class="box-shadow-2 img-fluid" alt="listing image" />
@@ -93,7 +94,7 @@
                             <input type="text" hidden="hidden" name="listing" value="@Model.DealerName" />
                             <input type="text" hidden="hidden" name="listing" value="@Model.DealerUrl" />
                             <input type="text" hidden="hidden" name="listing" value="@Model.StockNumber" />
-                            <input class="btn btn-warning formControl-shadow-1-2-50 mb-1 mr-1" role="button" type="submit" asp-controller="SingleListing" asp-action="GoToDealerSite" value="Visit @Html.DisplayFor(model => model.DealerName)" />
+                            <input class="btn btn-warning formControl-shadow-1-2-50 mr-1" role="button" type="submit" asp-controller="SingleListing" asp-action="GoToDealerSite" value="Visit @Html.DisplayFor(model => model.DealerName)" />
                             <input class="btn btn-warning formControl-shadow-1-2-50" role="button" type="submit" asp-controller="Contact" asp-action="ContactUs" value="More Info" />
                         </form>
                     </dd>
