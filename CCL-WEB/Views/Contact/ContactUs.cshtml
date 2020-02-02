@@ -13,33 +13,42 @@
             </button>
         </div>
         
-            <form asp-action="RequestInfo" asp-controller="Contact" method="post">
-                <div class="form-group">
-                    <input class="form-control" type="text" hidden="hidden" asp-for="ListingId" name="listing" value="@ViewBag.listingId" />
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="text" hidden="hidden" asp-for="DealerName" name="listing" value="@ViewBag.dealerName" />
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="text" hidden="hidden" asp-for="DealerUrl" name="listing" value="@ViewBag.dealerUrl" />
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="text" hidden="hidden" asp-for="StockNumber" name="listing" value="@ViewBag.stockNumber" />
-                </div>
-                <div class="form-group">
-                    <label class="text-light" asp-for="Name">Please enter your name:</label>
-                    <input class="form-control box-shadow-1" type="text" asp-for="Name" />
-                </div>
-                <div class="form-group">
-                    <label class="text-light" asp-for="Email">Please enter your email:</label>
-                    <input class="form-control box-shadow-1" type="text" asp-for="Email" />
-                </div>
-                <div class="form-group">
-                    <label class="text-light" asp-for="Message">Please enter your message:</label>
-                    <textarea class="form-control box-shadow-1" asp-for="Message"></textarea>
-                </div>
-                <input class="btn btn-primary formControl-shadow-1-2-50" type="submit" role="button" value="Request More Info!" />
-            </form>
+        <form asp-action="RequestInfo" asp-controller="Contact" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" hidden="hidden" asp-for="Id" name="listing" value="@ViewBag.Id" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" hidden="hidden" asp-for="DealerName" name="listing" value="@ViewBag.dealerName" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" hidden="hidden" asp-for="DealerUrl" name="listing" value="@ViewBag.dealerUrl" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" hidden="hidden" asp-for="StockNumber" name="listing" value="@ViewBag.stockNumber" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" hidden="hidden" asp-for="Year" name="listing" value="@ViewBag.year" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" hidden="hidden" asp-for="Make" name="listing" value="@ViewBag.make" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" hidden="hidden" asp-for="Model" name="listing" value="@ViewBag.model" />
+            </div>
+            <div class="form-group">
+                <label class="text-light" asp-for="Name">Please enter your name:</label>
+                <input class="form-control box-shadow-1" type="text" asp-for="Name" name="listing" />
+            </div>
+            <div class="form-group">
+                <label class="text-light" asp-for="Email">Please enter your email:</label>
+                <input class="form-control box-shadow-1" type="text" asp-for="Email" name="listing" />
+            </div>
+            <div class="form-group">
+                <label class="text-light" asp-for="Message">Please enter your message:</label>
+                <textarea class="form-control box-shadow-1" asp-for="Message" name="listing"></textarea>
+            </div>
+            <input class="btn btn-primary formControl-shadow-1-2-50" type="submit" role="button" value="Request More Info!" />
+        </form>
        
     </div>
 </div>

@@ -4,14 +4,16 @@ using CCL_WEB.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CCL_WEB.Migrations
 {
     [DbContext(typeof(CCLdbContext))]
-    partial class CCLdbContextModelSnapshot : ModelSnapshot
+    [Migration("20200123140413_AddedModels-YearMakeModel")]
+    partial class AddedModelsYearMakeModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,12 +167,12 @@ namespace CCL_WEB.Migrations
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Year")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("YearId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("make");
+                    b.ToTable("Make");
                 });
 
             modelBuilder.Entity("CCL_WEB.Models.Model", b =>
@@ -180,18 +182,15 @@ namespace CCL_WEB.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Make")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("MakeId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Year")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("model");
+                    b.ToTable("Model");
                 });
 
             modelBuilder.Entity("CCL_WEB.Models.Year", b =>

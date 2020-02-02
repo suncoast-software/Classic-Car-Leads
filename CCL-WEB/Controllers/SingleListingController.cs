@@ -21,7 +21,7 @@ namespace CCL_WEB.Controllers
         //GET: '/SingleListing'
         public IActionResult Index(int? id)
         {
-            var listing = listingHelper.GetListing(id);
+            var listing = context.Listing.Find(id);
             return View(listing);
         }
 

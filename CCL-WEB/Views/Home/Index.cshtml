@@ -1,8 +1,7 @@
-﻿@model List<CCL_WEB.Models.Listing>
+﻿@model CCL_WEB.Models.ListingViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
-
 <div class="container mt-100">
     <section style="border-radius: 22px;">
         <div class="row">
@@ -13,52 +12,16 @@
                             <div class="card-title text-center">Search Query</div>
                             <div class="col-sm-12">
                                 <p class="mb-1">
-                                    <select id="years" class="form-control formControl-shadow-1-1-25 mb-1" name="year">
-                                        <option value="">Year</option>
-                                    @if (ViewBag.years != null)
-                                    {
-                                        @foreach (var item in ViewBag.years)
-                                        {
-                                            <option value="@item">@item</option>
-                                        }
-                                    }
-                                    else
-                                    {
-                                    }
-                                    </select>
+                                    @Html.DropDownListFor(m => m.Year, Model.Years, "--Select Year--", new {onchange = "document.forms[0].submit()",  @class = "form-control" })
+                                  
                                 </p>
                                 <p class="mb-1">
-                                    <select class="form-control formControl-shadow-1-1-25 mb-1" name="make">
-                                        <option value="">Make</option>
-                                        @if (ViewBag.makes != null)
-                                        {
-                                            @foreach (var item in ViewBag.makes)
-                                            {
-                                                <option value="@item">@item</option>
-
-                                            }
-                                        }
-                                        else
-                                        {
-
-                                        }
-                                    </select>
+                                    @Html.DropDownListFor(m => m.Make, Model.Makes, "--Select Make--", new { onchange = "document.forms[0].submit()", disabled = "disabled", @class = "form-control" })
+                                   
                                 </p>
                                 <p class="mb-1">
-                                    <select class="form-control formControl-shadow-1-1-25 mb-1" name="model">
-                                        <option value="">Model</option>
-                                        @if (ViewBag.models != null)
-                                        {
-                                        @foreach (var item in ViewBag.models)
-                                            {
-                                                <option value="@item">@item</option>
-                                            }
-                                        }
-                                        else
-                                        {
-
-                                        }
-                                    </select>
+                                    @Html.DropDownListFor(m => m.Model, Model.Models, "--Select Model--", new {disabled = "disabled", @class = "form-control" })
+                                    
                                 </p>
                                 <input type="submit" Value="Submit" class="btn btn-primary btn-shadow-1 mb-2 mt-2" />
                             </div>
@@ -74,60 +37,63 @@
             </div>
         </div>
     </section>
-    
+
     <section class="container">
         @if (Model != null)
         {
-            if (Model.Count < 1)
+            if (Model.Listings.Count < 1)
             {
-                <div class="alert alert-dark mt-5 box-shadow-1">
+                <div id="queryResult" class="alert alert-dark mt-5 box-shadow-1">
                     Your query return 0 results. Either there are 0 Listings or your query was in the wrong format.
                 </div>
             }
             else
             {
+                <div class="alert alert-dark mt-5 box-shadow-1">
+                    Your query return @Model.Listings.Count results.
+                </div>
                 <div class="row mt-5">
 
-                    @foreach (var listing in Model)
+                    @foreach (var listing in Model.Listings)
                     {
-                    
-                    <div class="card formControl-shadow-2-2-50 card-bg-light-grey-dark-grey mb-3 align-content-center p-2">
-                        <div class="row no-gutters">
-                            <div class="col-sm-4 flex">
-                                @if (listing.MainImgUrl == null)
-                                {
-                                    <label>no image available</label>
-                                }
-                                else
-                                {
-                                    <img src="@Url.Content(listing.MainImgUrl)" class="card-img align-content-center box-shadow-2 mt-3" alt="...">
-                                }
 
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="card-body">
-                                    <h6 class="card-subtitle text-black-50 ml-2">@listing.ListingId</h6>
-                                    <h5 class="card-title text-warning text-shadow-1-2-50 ml-2">@listing.Title</h5>
-                                    <p class="card-text ml-2">
-                                        @listing.Location
-                                        <br />Price:&nbsp;@listing.Price
-                                        <br />Make:&nbsp;@listing.Make
-                                        <br />Model:&nbsp;@listing.Model
-                                        <br />Year&nbsp;@listing.Year
-                                        <br />
-                                        <div class="mt-5 ml-1">
-                                            @if (listing.DealerUrl != "" || listing.DealerUrl != null)
-                                            {
-                                                <a class="btn btn-dark text-shadow" role="button" asp-controller="SingleListing" asp-action="Index" asp-route-id="@listing.Id">Details</a>
-                                            }
-                                        </div>
+                        <div class="card formControl-shadow-2-2-50 card-bg-light-grey-dark-grey mb-3 align-content-center p-2">
+                            <div class="row no-gutters">
+                                <div class="col-sm-4 flex">
+                                    @if (listing.MainImgUrl == null)
+                                    {
+                                        <label>no image available</label>
+                                    }
+                                    else
+                                    {
+                                        <img src="@Url.Content(listing.MainImgUrl)" class="card-img align-content-center box-shadow-2 mt-3" alt="...">
+                                    }
 
-                                    </p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="card-body">
+                                        <h6 class="card-subtitle text-black-50 ml-1">@listing.ListingId</h6>
+                                        <h5 class="card-title text-warning text-shadow-1-2-50 ml-1">@listing.Title</h5>
+                                        <table>
+                                            <tbody>
+                                                <tr><td class="ml-2">@listing.Location</td></tr>
+                                                <tr><td class="ml-2 text-warning text-shadow-1-2-50"><strong>Price:&nbsp;@listing.Price</strong></td></tr>
+                                                <tr><td class="ml-2">Make:&nbsp;@listing.Make</td></tr>
+                                                <tr><td class="ml-2">Model:&nbsp;@listing.Model</td></tr>
+                                                <tr><td class="ml-2">Year&nbsp;@listing.Year</td></tr>
+                                                <tr><td class="mt-5 ml-2">
+                                                        @if (listing.DealerUrl != "" || listing.DealerUrl != null)
+                                                        {
+                                                            <a class="btn btn-dark text-shadow" role="button" asp-controller="SingleListing" asp-action="Index" asp-route-id="@listing.Id">Details</a>
+                                                        }
+                                                </td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                       
+
                     }
 
                 </div>
@@ -136,4 +102,18 @@
         }
     </section>
 </div>
+<script src="../../lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(function () {
+        if ($("#Year option").length > 1) {
+            $("#Make").removeAttr("disabled");
+        }
+        if ($("#Make option").length > 1) {
+            $("#Model").removeAttr("disabled");
+        }
+        
+    });
+</script>
+
+
 

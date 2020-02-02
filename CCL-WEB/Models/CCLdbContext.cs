@@ -15,6 +15,9 @@ namespace CCL_WEB.Models
         {
         }
 
+        public DbSet<Year> Year { get; set; }
+        public DbSet<Make> make { get; set; }
+        public DbSet<Model> model { get; set; }
         public virtual DbSet<Dealer> Dealer { get; set; }
         public virtual DbSet<Listing> Listing { get; set; }
         public virtual DbSet<Log> Log { get; set; }

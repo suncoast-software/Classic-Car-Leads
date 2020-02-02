@@ -1,0 +1,128 @@
+﻿@model IEnumerable<CCL_WEB.Models.Listing>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listings</h1>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ListingId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Make)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Model)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Desc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Transmission)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Engine)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StockNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DealerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DealerUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MainImgUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ListingId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Location)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Make)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Year)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Desc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Transmission)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Engine)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vin)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StockNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DealerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DealerUrl)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MainImgUrl)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
